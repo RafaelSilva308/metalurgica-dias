@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Metalúrgica Dias — Máquinas para Café | Patrocínio, MG</title>
+<meta name="description" content="Fabricação própria de sopradores, recolhedoras, batedores e juntadores de café. Máquinas robustas, feitas sob medida, em Patrocínio-MG.">
+<meta property="og:title" content="Metalúrgica Dias — Máquinas para Café">
+<meta property="og:description" content="Fabricação própria de máquinas para a lavoura de café. Sob medida. Feitas para durar.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230B0D12'/%3E%3Crect x='14' y='14' width='72' height='72' rx='10' fill='none' stroke='%231D4ED8' stroke-width='7'/%3E%3Ctext x='50' y='68' font-family='Arial Black, sans-serif' font-weight='900' font-size='52' fill='%23E11D2E' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0D12;
+    --bg-alt:#12151C;
+    --surface:#171B24;
+    --surface-2:#1D222D;
+    --border:#262B36;
+    --text:#F5F7FA;
+    --text-muted:#9AA5B1;
+    --light:#F7F8FA;
+    --light-alt:#EFF1F4;
+    --dark-text:#12151C;
+    --dark-muted:#5B6472;
+    --border-light:#E3E6EB;
+    --primary:#1D4ED8;
+    --primary-light:#3B82F6;
+    --accent:#E3222F;
+    --accent-dark:#B91324;
+    --whatsapp:#25D366;
+    --whatsapp-dark:#1DA851;
+    --radius:14px;
+    --radius-lg:22px;
+    --shadow-sm:0 1px 2px rgba(0,0,0,.3);
+    --shadow-md:0 8px 24px rgba(0,0,0,.35);
+    --shadow-lg:0 24px 60px rgba(0,0,0,.45);
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+  }
+  body{
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img,svg{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  ul{list-style:none}
+  button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  .container{max-width:1200px;margin:0 auto;padding:0 24px}
+  @media(min-width:768px){.container{padding:0 40px}}
+
+  h1,h2,h3,.display{
+    font-family:'Bebas Neue',sans-serif;
+    letter-spacing:.02em;
+    line-height:1.05;
+    text-transform:uppercase;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--primary-light);
+  }
+  .eyebrow::before{content:'';width:22px;height:2px;background:var(--accent);border-radius:2px;flex:none}
+
+  section{position:relative}
+  .section-pad{padding:88px 0}
+  @media(max-width:767px){.section-pad{padding:64px 0}}
+  .light-section{background:var(--light);color:var(--dark-text)}
+  .light-section .text-muted{color:var(--dark-muted)}
+  .alt-section{background:var(--bg-alt)}
+
+  .section-head{max-width:640px;margin-bottom:48px}
+  .section-head h2{font-size:clamp(34px,5vw,52px);margin:14px 0 16px}
+  .section-head p{font-size:17px;color:var(--text-muted)}
+  .light-section .section-head p{color:var(--dark-muted)}
+  .center{text-align:center;margin-left:auto;margin-right:auto}
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:15px 28px;border-radius:10px;font-weight:700;font-size:15px;
+    transition:transform .18s var(--ease),box-shadow .18s var(--ease),background-color .18s var(--ease),border-color .18s var(--ease);
+    white-space:nowrap;cursor:pointer;touch-action:manipulation;min-height:48px;
+  }
+  .btn svg{width:20px;height:20px;flex:none}
+  .btn:active{transform:scale(.97)}
+  .btn-whatsapp{background:var(--whatsapp);color:#06210F;box-shadow:0 10px 24px -8px rgba(37,211,102,.55)}
+  .btn-whatsapp:hover{background:var(--whatsapp-dark);box-shadow:0 14px 30px -8px rgba(37,211,102,.7)}
+  .btn-outline{background:transparent;border:1.5px solid rgba(247,248,250,.28);color:var(--text)}
+  .btn-outline:hover{border-color:var(--text);background:rgba(247,248,250,.06)}
+  .light-section .btn-outline{border-color:rgba(18,21,28,.22);color:var(--dark-text)}
+  .light-section .btn-outline:hover{border-color:var(--dark-text);background:rgba(18,21,28,.05)}
+  .btn-accent{background:var(--accent);color:#fff;box-shadow:0 10px 24px -8px rgba(227,34,47,.55)}
+  .btn-accent:hover{background:var(--accent-dark)}
+  .btn-block{width:100%}
+
+  /* Header */
+  .site-header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:16px 0;
+    background:rgba(11,13,18,.7);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid transparent;
+    transition:background-color .25s var(--ease),border-color .25s var(--ease),padding .25s var(--ease);
+  }
+  .site-header.scrolled{background:rgba(11,13,18,.92);border-bottom-color:var(--border);padding:10px 0}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{display:flex;align-items:center;gap:11px}
+  .brand-mark{width:42px;height:42px;flex:none}
+  .brand-word{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.05em;line-height:1.05}
+  .brand-word span{display:block;font-family:'Inter',sans-serif;font-size:9.5px;font-weight:600;letter-spacing:.16em;color:var(--text-muted);text-transform:uppercase;margin-top:1px}
+
+  .main-nav{display:none}
+  .main-nav ul{display:flex;gap:32px}
+  .main-nav a{font-size:14.5px;font-weight:600;color:var(--text-muted);transition:color .18s var(--ease);position:relative;padding:4px 0}
+  .main-nav a:hover{color:var(--text)}
+  @media(min-width:960px){.main-nav{display:block}}
+
+  .header-actions{display:flex;align-items:center;gap:10px}
+  .phone-chip{display:none;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--text)}
+  .phone-chip svg{width:17px;height:17px;color:var(--primary-light)}
+  @media(min-width:1100px){.phone-chip{display:inline-flex}}
+  .header-actions .btn{padding:11px 18px;font-size:14px}
+  .nav-toggle{display:flex;width:44px;height:44px;align-items:center;justify-content:center;border-radius:9px}
+  .nav-toggle svg{width:24px;height:24px}
+  @media(min-width:960px){.nav-toggle{display:none}}
+
+  .mobile-nav{
+    position:fixed;inset:0;z-index:99;background:var(--bg);
+    display:flex;flex-direction:column;padding:96px 24px 40px;
+    transform:translateY(-100%);transition:transform .32s var(--ease);
+  }
+  .mobile-nav.open{transform:translateY(0)}
+  .mobile-nav ul{display:flex;flex-direction:column;gap:4px}
+  .mobile-nav a{display:block;padding:16px 4px;font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:.03em;border-bottom:1px solid var(--border)}
+  .mobile-nav .btn{margin-top:28px}
+
+  /* Hero */
+  .hero{
+    padding:150px 0 90px;
+    background:
+      radial-gradient(880px 480px at 82% -10%, rgba(29,78,216,.35), transparent 60%),
+      radial-gradient(600px 380px at 8% 110%, rgba(227,34,47,.16), transparent 60%),
+      var(--bg);
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;gap:56px;align-items:center;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:980px){.hero-grid{grid-template-columns:1.05fr .95fr;gap:40px}}
+  .hero h1{font-size:clamp(40px,6.4vw,68px);margin:16px 0 20px}
+  .hero h1 em{font-style:normal;color:var(--accent)}
+  .hero-sub{font-size:18px;color:var(--text-muted);max-width:520px;margin-bottom:32px}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:40px}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:22px}
+  .hero-meta li{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:600;color:var(--text-muted)}
+  .hero-meta svg{width:18px;height:18px;color:var(--primary-light);flex:none}
+
+  .hero-visual{position:relative}
+  .blueprint{
+    position:relative;border-radius:var(--radius-lg);
+    background:
+      linear-gradient(rgba(59,130,246,.14) 1px, transparent 1px) 0 0/28px 28px,
+      linear-gradient(90deg, rgba(59,130,246,.14) 1px, transparent 1px) 0 0/28px 28px,
+      linear-gradient(155deg,#0E1420,#171B24 60%,#0E1420);
+    border:1px solid var(--border);
+    box-shadow:var(--shadow-lg);
+    padding:34px;
+    aspect-ratio:1/1;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .blueprint svg{width:78%;height:78%}
+  .blueprint-tag{
+    position:absolute;left:22px;bottom:22px;
+    background:rgba(11,13,18,.75);backdrop-filter:blur(6px);
+    border:1px solid var(--border);border-radius:10px;
+    padding:10px 14px;font-size:12px;font-weight:600;color:var(--text-muted);
+    letter-spacing:.02em;
+  }
+  .blueprint-badge{
+    position:absolute;top:20px;right:20px;
+    background:var(--accent);color:#fff;font-weight:800;font-size:12px;
+    padding:8px 12px;border-radius:8px;letter-spacing:.04em;
+    box-shadow:0 8px 18px -6px rgba(227,34,47,.6);
+  }
+
+  /* Trust strip */
+  .trust-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-alt)}
+  .trust-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;padding:32px 0}
+  @media(min-width:700px){.trust-grid{grid-template-columns:repeat(4,1fr)}}
+  .trust-item{display:flex;align-items:center;gap:12px}
+  .trust-item svg{width:26px;height:26px;color:var(--accent);flex:none}
+  .trust-item strong{display:block;font-size:14.5px;font-weight:700}
+  .trust-item span{display:block;font-size:12.5px;color:var(--text-muted)}
+
+  /* Products */
+  .product-grid{display:grid;grid-template-columns:1fr;gap:22px}
+  @media(min-width:700px){.product-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1040px){.product-grid{grid-template-columns:repeat(3,1fr)}}
+  .product-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);
+    padding:30px 28px;display:flex;flex-direction:column;gap:16px;
+    transition:transform .22s var(--ease), border-color .22s var(--ease), background-color .22s var(--ease);
+  }
+  .product-card:hover{transform:translateY(-4px);border-color:#31394A;background:var(--surface-2)}
+  .product-icon{
+    width:54px;height:54px;border-radius:12px;
+    background:linear-gradient(155deg,rgba(29,78,216,.22),rgba(29,78,216,.06));
+    border:1px solid rgba(59,130,246,.28);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .product-icon svg{width:28px;height:28px;color:var(--primary-light)}
+  .product-card h3{font-family:'Inter',sans-serif;font-size:19px;font-weight:800;letter-spacing:0;text-transform:none}
+  .product-card p{font-size:14.5px;color:var(--text-muted);flex:1}
+  .product-link{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;color:var(--primary-light);margin-top:2px}
+  .product-link svg{width:15px;height:15px;transition:transform .18s var(--ease)}
+  .product-card:hover .product-link svg{transform:translateX(3px)}
+
+  /* Differentiators */
+  .diff-grid{display:grid;grid-template-columns:1fr;gap:2px;background:var(--border-light);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border-light)}
+  @media(min-width:700px){.diff-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1040px){.diff-grid{grid-template-columns:repeat(4,1fr)}}
+  .diff-item{background:#fff;padding:32px 26px}
+  .diff-item .num{font-family:'Bebas Neue',sans-serif;font-size:15px;color:var(--accent);letter-spacing:.06em;margin-bottom:14px;display:block}
+  .diff-item h3{font-family:'Inter',sans-serif;font-size:17px;font-weight:800;text-transform:none;margin-bottom:8px}
+  .diff-item p{font-size:14px;color:var(--dark-muted)}
+
+  /* Gallery */
+  .gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  @media(min-width:700px){.gallery-grid{grid-template-columns:repeat(3,1fr)}}
+  .gallery-frame{
+    position:relative;aspect-ratio:4/3;border-radius:var(--radius);
+    background:
+      repeating-linear-gradient(135deg, rgba(255,255,255,.035) 0 2px, transparent 2px 14px),
+      linear-gradient(155deg,#171B24,#0E1118);
+    border:1.5px dashed #313847;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+    color:var(--text-muted);text-align:center;padding:18px;
+  }
+  .gallery-frame svg{width:30px;height:30px;color:#4B5566}
+  .gallery-frame span{font-size:12.5px;font-weight:700;letter-spacing:.03em;color:var(--text-muted)}
+  .gallery-frame small{font-size:11px;color:#5A6472}
+  .gallery-note{margin-top:18px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px}
+  .gallery-note svg{width:16px;height:16px;color:var(--primary-light);flex:none}
+
+  /* CTA banner */
+  .cta-banner{
+    background:linear-gradient(120deg,#101521,#161B2A 55%,#1B1420);
+    border-radius:var(--radius-lg);
+    border:1px solid var(--border);
+    padding:56px 36px;
+    display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;
+    position:relative;overflow:hidden;
+  }
+  .cta-banner::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(520px 260px at 15% 20%, rgba(227,34,47,.20), transparent 60%),
+               radial-gradient(520px 260px at 85% 90%, rgba(29,78,216,.28), transparent 60%);
+    pointer-events:none;
+  }
+  .cta-banner *{position:relative}
+  .cta-banner h2{font-size:clamp(30px,4.6vw,44px);max-width:680px}
+  .cta-banner p{color:var(--text-muted);max-width:520px;font-size:16px}
+  .cta-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:8px}
+
+  /* Contact */
+  .contact-grid{display:grid;grid-template-columns:1fr;gap:32px}
+  @media(min-width:940px){.contact-grid{grid-template-columns:.9fr 1.1fr}}
+  .contact-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:34px}
+  .contact-row{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--border)}
+  .contact-row:last-child{border-bottom:none;padding-bottom:0}
+  .contact-row:first-child{padding-top:0}
+  .contact-row .ic{width:42px;height:42px;border-radius:10px;background:rgba(59,130,246,.14);border:1px solid rgba(59,130,246,.28);display:flex;align-items:center;justify-content:center;flex:none}
+  .contact-row .ic svg{width:20px;height:20px;color:var(--primary-light)}
+  .contact-row h4{font-size:14px;font-weight:700;margin-bottom:4px}
+  .contact-row p, .contact-row a{font-size:14px;color:var(--text-muted)}
+  .contact-row a:hover{color:var(--text)}
+  .map-wrap{border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);min-height:340px;height:100%;background:var(--surface)}
+  .map-wrap iframe{width:100%;height:100%;min-height:340px;border:0;filter:grayscale(.15) contrast(1.05)}
+
+  /* Footer */
+  .site-footer{background:#080A0E;border-top:1px solid var(--border);padding:56px 0 28px}
+  .footer-grid{display:grid;grid-template-columns:1fr;gap:40px;padding-bottom:36px}
+  @media(min-width:760px){.footer-grid{grid-template-columns:1.4fr 1fr 1fr}}
+  .footer-brand p{color:var(--text-muted);font-size:14px;margin-top:14px;max-width:340px}
+  .footer-col h5{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px}
+  .footer-col ul{display:flex;flex-direction:column;gap:11px}
+  .footer-col a{font-size:14px;color:var(--text-muted)}
+  .footer-col a:hover{color:var(--text)}
+  .footer-social{display:flex;gap:10px;margin-top:16px}
+  .footer-social a{width:38px;height:38px;border-radius:9px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
+  .footer-social a:hover{border-color:#3A4152;background:var(--surface)}
+  .footer-social svg{width:18px;height:18px}
+  .footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:12.5px;color:#5A6472}
+
+  /* Floating WhatsApp */
+  .float-wa{
+    position:fixed;right:20px;bottom:20px;z-index:90;
+    width:60px;height:60px;border-radius:50%;
+    background:var(--whatsapp);color:#06210F;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 12px 30px -6px rgba(37,211,102,.65);
+    transition:transform .2s var(--ease);
+  }
+  .float-wa:hover{transform:scale(1.07)}
+  .float-wa svg{width:30px;height:30px}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+
+  .skip-link{position:absolute;left:-999px;top:0;background:var(--accent);color:#fff;padding:12px 18px;border-radius:8px;z-index:200}
+  .skip-link:focus{left:16px;top:16px}
+  a:focus-visible, button:focus-visible{outline:2.5px solid var(--primary-light);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Pular para o conteúdo</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="#topo" class="brand" aria-label="Metalúrgica Dias — início">
+      <svg class="brand-mark" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+        <rect width="100" height="100" rx="20" fill="#0B0D12"/>
+        <rect x="15" y="15" width="70" height="70" rx="11" stroke="#3B82F6" stroke-width="7"/>
+        <text x="50" y="67" font-family="Arial Black, Inter, sans-serif" font-weight="900" font-size="46" fill="#E3222F" text-anchor="middle">M</text>
+      </svg>
+      <span class="brand-word">METALÚRGICA DIAS<span>Patrocínio &middot; MG</span></span>
+    </a>
+
+    <nav class="main-nav" aria-label="Navegação principal">
+      <ul>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a class="phone-chip" href="tel:+553438316041" aria-label="Ligar para (34) 3831-6041">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (34) 3831-6041
+      </a>
+      <a class="btn btn-whatsapp" href="https://wa.me/5534997273458?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20Metal%C3%BArgica%20Dias%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.2h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.13a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 1 1 6.98 3.86zm4.5-6.16c-.25-.12-1.47-.72-1.69-.8-.23-.08-.4-.12-.56.13-.17.25-.65.8-.79.96-.15.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23a7.5 7.5 0 0 1-1.38-1.72c-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.44.12-.15.16-.25.24-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08 0 1.22.89 2.41 1.01 2.57.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.17-.48-.29z"/></svg>
+        WhatsApp
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobileNav" aria-label="Navegação móvel">
+  <ul>
+    <li><a href="#produtos">Produtos</a></li>
+    <li><a href="#diferenciais">Diferenciais</a></li>
+    <li><a href="#galeria">Galeria</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a class="btn btn-whatsapp btn-block" href="https://wa.me/5534997273458?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20Metal%C3%BArgica%20Dias%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.2h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+    Falar no WhatsApp
+  </a>
+</nav>
+
+<main id="main">
+  <div id="topo"></div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Fabricação própria &middot; Patrocínio, MG</span>
+        <h1>Máquinas robustas para quem vive o <em>café</em>.</h1>
+        <p class="hero-sub">Sopradores, recolhedoras, batedores e juntadores de café feitos sob medida na oficina da Metalúrgica Dias — soldados para aguentar o ritmo pesado da colheita.</p>
+        <div class="hero-actions">
+          <a class="btn btn-whatsapp" href="https://wa.me/5534997273458?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20Metal%C3%BArgica%20Dias%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.2h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+            Peça seu orçamento
+          </a>
+          <a class="btn btn-outline" href="#produtos">
+            Ver produtos
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+        <ul class="hero-meta">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Av. Gen. Astolfo F. Mendes, 1714 — São Judas Tadeu</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></svg> Seg. a sex., 7h30 às 18h</li>
+        </ul>
+      </div>
+
+      <div class="hero-visual reveal" id="heroVisual">
+        <div class="blueprint">
+          <span class="blueprint-badge">SOB MEDIDA</span>
+          <!-- Blueprint-style illustration: coffee thresher / blower machine -->
+          <svg viewBox="0 0 240 220" fill="none" aria-hidden="true">
+            <g stroke="#3B82F6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".9">
+              <rect x="26" y="120" width="150" height="58" rx="6"/>
+              <rect x="26" y="120" width="150" height="14" rx="4" fill="#101521"/>
+              <circle cx="58" cy="196" r="14"/>
+              <circle cx="146" cy="196" r="14"/>
+              <circle cx="58" cy="196" r="4" fill="#3B82F6"/>
+              <circle cx="146" cy="196" r="4" fill="#3B82F6"/>
+              <path d="M176 140h26a10 10 0 0 1 10 10v10a10 10 0 0 1-10 10h-26z"/>
+              <path d="M212 150h14"/>
+              <path d="M64 120V78a14 14 0 0 1 14-14h44a14 14 0 0 1 14 14v42"/>
+              <circle cx="100" cy="70" r="26" stroke-dasharray="4 5"/>
+              <path d="M100 44v52M74 70h52" stroke-dasharray="4 5"/>
+              <path d="M100 44a26 26 0 0 1 26 26" stroke="#E3222F" stroke-dasharray="none"/>
+            </g>
+            <g fill="#E3222F">
+              <circle cx="100" cy="70" r="4"/>
+            </g>
+            <g stroke="#4B5566" stroke-width="1" stroke-dasharray="3 4">
+              <line x1="10" y1="120" x2="230" y2="120"/>
+              <line x1="26" y1="10" x2="26" y2="210"/>
+            </g>
+            <g fill="#6B7482" font-family="Inter, sans-serif" font-size="9" font-weight="600">
+              <text x="30" y="20">ESTRUTURA REFORÇADA</text>
+              <text x="182" y="130">MOTOR</text>
+            </g>
+          </svg>
+          <span class="blueprint-tag">Projeto técnico &middot; ilustrativo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <section class="trust-strip">
+    <div class="container trust-grid">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        <span><strong>Fabricação própria</strong><span>Do projeto à solda, tudo na oficina</span></span>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6l8-4z"/></svg>
+        <span><strong>Feito sob medida</strong><span>Máquina pensada para sua lavoura</span></span>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></svg>
+        <span><strong>Seg. a sex., 7h30–18h</strong><span>Atendimento em Patrocínio-MG</span></span>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.2h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+        <span><strong>Fala direto com quem fabrica</strong><span>Orçamento pelo WhatsApp</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="section-pad" id="produtos">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">O que fabricamos</span>
+        <h2>Máquinas para cada etapa da colheita</h2>
+        <p>Equipamentos construídos com estrutura reforçada, pensados para o dia a dia pesado da lavoura de café.</p>
+      </div>
+
+      <div class="product-grid">
+        <article class="product-card reveal">
+          <div class="product-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a3 3 0 0 1 3 3c0 1.5-1.5 2.5-3 2.5S9 7.5 9 6"/><path d="M12 21a3 3 0 0 0 3-3c0-1.5-1.5-2.5-3-2.5s-3 1-3 2.5"/><path d="M21 12a3 3 0 0 1-3 3c-1.5 0-2.5-1.5-2.5-3s1-3 2.5-3"/><path d="M3 12a3 3 0 0 0 3 3c1.5 0 2.5-1.5 2.5-3S7.5 9 6 9"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/></svg>
+          </div>
+          <h3>Sopradores de Café</h3>
+          <p>Alta vazão de ar para limpeza e secagem eficiente do café na pós-colheita, com menor esforço e mais agilidade.</p>
+          <a class="product-link" href="https://wa.me/5534997273458?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20um%20SOPRADOR%20DE%20CAF%C3%89." target="_blank" rel="noopener">Pedir orçamento
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </article>
+
+        <article class="product-card reveal">
+          <div class="product-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="13" width="14" height="6" rx="1.5"/><path d="M17 15h2.2a1.8 1.8 0 0 1 1.8 1.8V19h-4z"/><circle cx="7" cy="19.5" r="1.6"/><circle cx="14" cy="19.5" r="1.6"/><path d="M6 13V7a1 1 0 0 1 1-1h6l3 4"/></svg>
+          </div>
+          <h3>Recolhedoras de Café</h3>
+          <p>Praticidade e agilidade para recolher o café direto da lavoura, reduzindo tempo e mão de obra na colheita.</p>
+          <a class="product-link" href="https://wa.me/5534997273458?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20uma%20RECOLHEDORA%20DE%20CAF%C3%89." target="_blank" rel="noopener">Pedir orçamento
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </article>
+
+        <article class="product-card reveal">
+          <div class="product-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3l7 7-3 3-7-7z"/><path d="M14.5 8.5L4 19l-1 3 3-1L16.5 10.5"/></svg>
+          </div>
+          <h3>Batedores / Derriçadeiras</h3>
+          <p>Equipamentos que agilizam a derriça do café, aumentando o rendimento da equipe durante a colheita.</p>
+          <a class="product-link" href="https://wa.me/5534997273458?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20um%20BATEDOR%2FDERRI%C3%87ADEIRA%20DE%20CAF%C3%89." target="_blank" rel="noopener">Pedir orçamento
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </article>
+
+        <article class="product-card reveal">
+          <div class="product-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20c3-1 5-1 8 0s5 1 8 0"/><path d="M6 20V9M12 20v-7M18 20V7"/><path d="M4 9l2-3 2 3M10 12l2-3 2 3M16 7l2-3 2 3"/></svg>
+          </div>
+          <h3>Juntadores de Café</h3>
+          <p>Facilitam o enleiramento do café no talhão, otimizando o trabalho da equipe antes da recolhida.</p>
+          <a class="product-link" href="https://wa.me/5534997273458?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20um%20JUNTADOR%20DE%20CAF%C3%89." target="_blank" rel="noopener">Pedir orçamento
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </article>
+
+        <article class="product-card reveal">
+          <div class="product-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 21c3-4 6-6 9-9"/><path d="M11 12l6.5-6.5a2.1 2.1 0 0 1 3 3L14 15"/><path d="M17 4l3 3"/></svg>
+          </div>
+          <h3>Máquinas de Enterrar</h3>
+          <p>Soluções para preparo e manejo do solo, ajudando na incorporação de adubo e restos de cultura.</p>
+          <a class="product-link" href="https://wa.me/5534997273458?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20uma%20M%C3%81QUINA%20DE%20ENTERRAR." target="_blank" rel="noopener">Pedir orçamento
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </article>
+
+        <article class="product-card reveal">
+          <div class="product-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3>Fabricação e Manutenção</h3>
+          <p>Projetos sob medida, solda industrial e assistência técnica para revisar ou adaptar sua máquina.</p>
+          <a class="product-link" href="https://wa.me/5534997273458?text=Ol%C3%A1%2C%20preciso%20de%20FABRICA%C3%87%C3%83O%2FMANUTEN%C3%87%C3%83O%20sob%20medida." target="_blank" rel="noopener">Pedir orçamento
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFERENTIATORS -->
+  <section class="section-pad light-section" id="diferenciais">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Por que a Metalúrgica Dias</span>
+        <h2>Construída para durar na lavoura</h2>
+        <p class="center">Cada máquina sai da oficina pronta para o trabalho pesado — sem gambiarra, sem improviso.</p>
+      </div>
+
+      <div class="diff-grid reveal">
+        <div class="diff-item">
+          <span class="num">01</span>
+          <h3>Fabricação própria</h3>
+          <p>Do desenho ao acabamento, tudo é feito na nossa oficina em Patrocínio-MG.</p>
+        </div>
+        <div class="diff-item">
+          <span class="num">02</span>
+          <h3>Sob medida</h3>
+          <p>Ajustamos cada equipamento à realidade e ao porte da sua lavoura.</p>
+        </div>
+        <div class="diff-item">
+          <span class="num">03</span>
+          <h3>Material resistente</h3>
+          <p>Estrutura reforçada, feita para aguentar a rotina pesada da colheita.</p>
+        </div>
+        <div class="diff-item">
+          <span class="num">04</span>
+          <h3>Atendimento direto</h3>
+          <p>Você fala direto com quem fabrica — pelo telefone ou WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section-pad alt-section" id="galeria">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Galeria</span>
+        <h2>Equipamentos em campo</h2>
+        <p>Espaço reservado para fotos reais dos equipamentos e obras da Metalúrgica Dias.</p>
+      </div>
+
+      <div class="gallery-grid reveal">
+        <div class="gallery-frame">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-4 4-3-3-6 6"/></svg>
+          <span>Soprador de café</span><small>foto em breve</small>
+        </div>
+        <div class="gallery-frame">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-4 4-3-3-6 6"/></svg>
+          <span>Recolhedora de café</span><small>foto em breve</small>
+        </div>
+        <div class="gallery-frame">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-4 4-3-3-6 6"/></svg>
+          <span>Batedor de café</span><small>foto em breve</small>
+        </div>
+        <div class="gallery-frame">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-4 4-3-3-6 6"/></svg>
+          <span>Juntador de café</span><small>foto em breve</small>
+        </div>
+        <div class="gallery-frame">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-4 4-3-3-6 6"/></svg>
+          <span>Máquina de enterrar</span><small>foto em breve</small>
+        </div>
+        <div class="gallery-frame">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-4 4-3-3-6 6"/></svg>
+          <span>Oficina Metalúrgica Dias</span><small>foto em breve</small>
+        </div>
+      </div>
+      <p class="gallery-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Fotos reais dos equipamentos e da oficina entram aqui na versão final do site.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <h2>Pronto para equipar sua safra?</h2>
+        <p>Fale agora com a Metalúrgica Dias e peça seu orçamento sem compromisso — atendimento direto pelo WhatsApp.</p>
+        <div class="cta-actions">
+          <a class="btn btn-whatsapp" href="https://wa.me/5534997273458?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.2h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+            Falar no WhatsApp
+          </a>
+          <a class="btn btn-outline" href="tel:+553438316041">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            (34) 3831-6041
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section-pad alt-section" id="contato">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Contato</span>
+        <h2>Vamos conversar sobre sua máquina</h2>
+        <p>Estamos em Patrocínio-MG, prontos para atender sua propriedade e sua região.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card reveal">
+          <div class="contact-row">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div>
+              <h4>Endereço</h4>
+              <p>Av. General Astolfo Ferreira Mendes, 1714<br>São Judas Tadeu — Patrocínio, MG</p>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div>
+              <h4>Telefone</h4>
+              <a href="tel:+553438316041">(34) 3831-6041</a>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.2h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg></div>
+            <div>
+              <h4>WhatsApp</h4>
+              <a href="https://wa.me/5534997273458" target="_blank" rel="noopener">(34) 99727-3458</a>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></svg></div>
+            <div>
+              <h4>Horário de atendimento</h4>
+              <p>Segunda a sexta, 7h30 às 18h</p>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg></div>
+            <div>
+              <h4>Instagram</h4>
+              <a href="https://instagram.com/metalurgica.dias" target="_blank" rel="noopener">@metalurgica.dias</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-wrap reveal">
+          <iframe
+            src="https://www.google.com/maps?q=Av.+General+Astolfo+Ferreira+Mendes,+1714+-+S%C3%A3o+Judas+Tadeu,+Patroc%C3%ADnio+-+MG&output=embed"
+            title="Mapa — Metalúrgica Dias, Patrocínio-MG"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            aria-label="Mapa mostrando a localização da Metalúrgica Dias em Patrocínio-MG">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#topo" class="brand" aria-label="Metalúrgica Dias — início">
+          <svg class="brand-mark" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+            <rect width="100" height="100" rx="20" fill="#12151C"/>
+            <rect x="15" y="15" width="70" height="70" rx="11" stroke="#3B82F6" stroke-width="7"/>
+            <text x="50" y="67" font-family="Arial Black, Inter, sans-serif" font-weight="900" font-size="46" fill="#E3222F" text-anchor="middle">M</text>
+          </svg>
+          <span class="brand-word">METALÚRGICA DIAS<span>Patrocínio &middot; MG</span></span>
+        </a>
+        <p>Fabricação própria de máquinas para a lavoura de café — sopradores, recolhedoras, batedores, juntadores e serviços de metalurgia sob medida.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/metalurgica.dias" target="_blank" rel="noopener" aria-label="Instagram da Metalúrgica Dias">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+          </a>
+          <a href="https://wa.me/5534997273458" target="_blank" rel="noopener" aria-label="WhatsApp da Metalúrgica Dias">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.2h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+          </a>
+          <a href="tel:+553438316041" aria-label="Ligar para a Metalúrgica Dias">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Navegação</h5>
+        <ul>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#diferenciais">Diferenciais</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contato</h5>
+        <ul>
+          <li><a href="tel:+553438316041">(34) 3831-6041</a></li>
+          <li><a href="https://wa.me/5534997273458" target="_blank" rel="noopener">(34) 99727-3458</a></li>
+          <li><a href="https://instagram.com/metalurgica.dias" target="_blank" rel="noopener">@metalurgica.dias</a></li>
+          <li>Seg. a sex., 7h30–18h</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Metalúrgica Dias. Todos os direitos reservados.</span>
+      <span>Patrocínio, Minas Gerais</span>
+    </div>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/5534997273458?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.2h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.13a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 1 1 6.98 3.86zm4.5-6.16c-.25-.12-1.47-.72-1.69-.8-.23-.08-.4-.12-.56.13-.17.25-.65.8-.79.96-.15.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23a7.5 7.5 0 0 1-1.38-1.72c-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.44.12-.15.16-.25.24-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08 0 1.22.89 2.41 1.01 2.57.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.17-.48-.29z"/></svg>
+</a>
+
+<script>
+(function(){
+  var header = document.getElementById('siteHeader');
+  var onScroll = function(){
+    header.classList.toggle('scrolled', window.scrollY > 12);
+  };
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var toggle = document.getElementById('navToggle');
+  var mobileNav = document.getElementById('mobileNav');
+  function closeMenu(){
+    mobileNav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  toggle.addEventListener('click', function(){
+    var open = mobileNav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  mobileNav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', closeMenu);
+  });
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if('IntersectionObserver' in window && !reduceMotion){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+</body>
+</html>
