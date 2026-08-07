@@ -173,10 +173,57 @@
   @media(max-width:767px){.hero{padding:112px 0 56px}}
   @media(max-width:479px){.hero{padding:100px 0 48px}}
   .hero-grid{
+    position:relative;z-index:1;
     display:grid;gap:56px;align-items:center;
     grid-template-columns:1fr;
   }
   @media(min-width:980px){.hero-grid{grid-template-columns:1.05fr .95fr;gap:40px}}
+
+  /* Hero background FX: scan lines + giant watermark */
+  .hero-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+  .hero-lines{position:absolute;inset:0;display:flex;justify-content:space-evenly;opacity:.5}
+  .hero-lines span{position:relative;width:1px;height:100%;background:linear-gradient(180deg,transparent,rgba(59,130,246,.35) 35%,rgba(59,130,246,.35) 65%,transparent)}
+  .hero-lines span::after{content:'';position:absolute;left:50%;top:-60px;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:var(--primary-light);box-shadow:0 0 14px 4px rgba(59,130,246,.7);animation:hero-spark 7s linear infinite}
+  .hero-lines span:nth-child(2)::after{background:var(--accent);box-shadow:0 0 14px 4px rgba(227,34,47,.6);animation-delay:-2s;animation-duration:9s}
+  .hero-lines span:nth-child(4)::after{animation-delay:-4.5s;animation-duration:8s}
+  .hero-lines span:nth-child(3)::after,.hero-lines span:nth-child(5)::after{display:none}
+  @keyframes hero-spark{0%{top:-60px;opacity:0}8%{opacity:1}92%{opacity:1}100%{top:100%;opacity:0}}
+  .hero-watermark{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.94);
+    font-family:'Bebas Neue',sans-serif;font-size:clamp(120px,20vw,340px);line-height:1;
+    letter-spacing:.02em;color:rgba(247,248,250,.05);white-space:nowrap;user-select:none;
+  }
+  .hero-watermark.in{transform:translate(-50%,-50%) scale(1)}
+  @media(max-width:767px){.hero-watermark{display:none}}
+
+  /* Floating spec cards over the hero visual */
+  .spec-card{
+    background:rgba(11,13,18,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-md);
+    padding:16px 18px;display:flex;gap:12px;align-items:flex-start;max-width:230px;
+  }
+  .spec-card--right{flex-direction:column;gap:10px}
+  .spec-card-icon{width:38px;height:38px;border-radius:9px;flex:none;background:linear-gradient(155deg,rgba(59,130,246,.25),rgba(59,130,246,.05));border:1px solid rgba(59,130,246,.3);display:flex;align-items:center;justify-content:center}
+  .spec-card-icon svg{width:19px;height:19px;color:var(--primary-light)}
+  .spec-card-text{font-size:13px;color:var(--text-muted);line-height:1.4}
+  .spec-card-number{display:flex;align-items:baseline;gap:6px;font-family:'Bebas Neue',sans-serif}
+  .spec-card-number span{font-size:44px;line-height:1;color:var(--text)}
+  .spec-card-number small{font-size:12.5px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;font-family:'Inter',sans-serif;font-weight:600}
+  @media(min-width:980px){
+    .hero-visual{padding:26px}
+    .spec-card--left{position:absolute;left:-28px;bottom:-18px;z-index:2}
+    .spec-card--right{position:absolute;right:-24px;top:-20px;z-index:2}
+  }
+  @media(max-width:979px){.spec-card{max-width:none;margin-top:16px}}
+
+  .scroll-indicator{
+    position:absolute;left:50%;bottom:26px;transform:translateX(-50%);
+    width:24px;height:38px;border:1.5px solid rgba(247,248,250,.4);border-radius:999px;
+    display:flex;justify-content:center;padding-top:7px;z-index:1;
+  }
+  .scroll-indicator span{width:3px;height:7px;border-radius:99px;background:var(--text);animation:hero-scroll-dot 1.8s ease-in-out infinite}
+  @keyframes hero-scroll-dot{0%{opacity:1;transform:translateY(0)}70%{opacity:.2;transform:translateY(10px)}100%{opacity:0;transform:translateY(10px)}}
+  @media(max-width:767px){.scroll-indicator{display:none}}
   .hero h1{font-size:clamp(34px,6.4vw,68px);margin:16px 0 20px}
   .hero h1 em{font-style:normal;color:var(--accent)}
   .hero-sub{font-size:18px;color:var(--text-muted);max-width:520px;margin-bottom:32px}
@@ -200,19 +247,6 @@
     display:flex;align-items:center;justify-content:center;
   }
   .blueprint svg{width:78%;height:78%}
-  .blueprint-tag{
-    position:absolute;left:22px;bottom:22px;
-    background:rgba(11,13,18,.75);backdrop-filter:blur(6px);
-    border:1px solid var(--border);border-radius:10px;
-    padding:10px 14px;font-size:12px;font-weight:600;color:var(--text-muted);
-    letter-spacing:.02em;
-  }
-  .blueprint-badge{
-    position:absolute;top:20px;right:20px;
-    background:var(--accent);color:#fff;font-weight:800;font-size:12px;
-    padding:8px 12px;border-radius:8px;letter-spacing:.04em;
-    box-shadow:0 8px 18px -6px rgba(227,34,47,.6);
-  }
 
   /* Trust strip */
   .trust-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-alt)}
@@ -345,8 +379,10 @@
     .float-wa svg{width:26px;height:26px}
   }
 
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease);transition-delay:var(--rd,0s)}
   .reveal.in{opacity:1;transform:none}
+  .reveal-pop{transform:translateY(10px) scale(.88) rotate(-7deg)}
+  .reveal-pop-r{transform:translateY(10px) scale(.88) rotate(7deg)}
 
   .skip-link{position:absolute;left:-999px;top:0;background:var(--accent);color:#fff;padding:12px 18px;border-radius:8px;z-index:200}
   .skip-link:focus{left:16px;top:16px}
@@ -409,12 +445,17 @@
   <div id="topo"></div>
   <!-- HERO -->
   <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-lines"><span></span><span></span><span></span><span></span><span></span></div>
+      <span class="hero-watermark reveal" style="--rd:.1s">AÇO</span>
+    </div>
+
     <div class="container hero-grid">
       <div>
-        <span class="eyebrow">Fabricação própria &middot; Patrocínio, MG</span>
-        <h1>Máquinas robustas para quem vive o <em>café</em>.</h1>
-        <p class="hero-sub">Sopradores, recolhedoras, batedores e juntadores de café feitos sob medida na oficina da Metalúrgica Dias — soldados para aguentar o ritmo pesado da colheita.</p>
-        <div class="hero-actions">
+        <span class="eyebrow reveal">Fabricação própria &middot; Patrocínio, MG</span>
+        <h1 class="reveal" style="--rd:.06s">Máquinas robustas para quem vive o <em>café</em>.</h1>
+        <p class="hero-sub reveal" style="--rd:.12s">Sopradores, recolhedoras, batedores e juntadores de café feitos sob medida na oficina da Metalúrgica Dias — soldados para aguentar o ritmo pesado da colheita.</p>
+        <div class="hero-actions reveal" style="--rd:.18s">
           <a class="btn btn-whatsapp" href="https://wa.me/5534997273458?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20Metal%C3%BArgica%20Dias%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.2h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
             Peça seu orçamento
@@ -424,15 +465,14 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
           </a>
         </div>
-        <ul class="hero-meta">
+        <ul class="hero-meta reveal" style="--rd:.24s">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Av. Gen. Astolfo F. Mendes, 1714 — São Judas Tadeu</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></svg> Seg. a sex., 7h30 às 18h</li>
         </ul>
       </div>
 
-      <div class="hero-visual reveal" id="heroVisual">
-        <div class="blueprint">
-          <span class="blueprint-badge">SOB MEDIDA</span>
+      <div class="hero-visual">
+        <div class="blueprint reveal reveal-pop" id="heroVisual" style="--rd:.32s">
           <!-- Blueprint-style illustration: coffee thresher / blower machine -->
           <svg viewBox="0 0 240 220" fill="none" aria-hidden="true">
             <g stroke="#3B82F6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".9">
@@ -461,10 +501,25 @@
               <text x="182" y="130">MOTOR</text>
             </g>
           </svg>
-          <span class="blueprint-tag">Projeto técnico &middot; ilustrativo</span>
+        </div>
+
+        <!-- PLACEHOLDER: número e legenda ilustrativos, ajustar para dado real -->
+        <div class="spec-card spec-card--right reveal reveal-pop-r" style="--rd:.5s">
+          <p class="spec-card-text">Um jeito de fabricar pensado pra resistência excepcional e precisão sob medida.</p>
+          <div class="spec-card-number"><span>+30</span><small>anos de oficina</small></div>
+        </div>
+
+        <!-- PLACEHOLDER: texto ilustrativo, ajustar para diferencial real -->
+        <div class="spec-card spec-card--left reveal reveal-pop" style="--rd:.62s">
+          <div class="spec-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </div>
+          <p class="spec-card-text">Estrutura reforçada e motor dimensionado pra aguentar o ritmo pesado da colheita.</p>
         </div>
       </div>
     </div>
+
+    <div class="scroll-indicator reveal" style="--rd:.8s" aria-hidden="true"><span></span></div>
   </section>
 
   <!-- TRUST STRIP -->
