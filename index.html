@@ -179,22 +179,21 @@
   }
   @media(min-width:980px){.hero-grid{grid-template-columns:1.05fr .95fr;gap:40px}}
 
-  /* Hero background FX: scan lines + giant watermark */
+  /* Hero background FX: looping video of components + dark overlay for legibility */
   .hero-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-  .hero-lines{position:absolute;inset:0;display:flex;justify-content:space-evenly;opacity:.5}
-  .hero-lines span{position:relative;width:1px;height:100%;background:linear-gradient(180deg,transparent,rgba(59,130,246,.35) 35%,rgba(59,130,246,.35) 65%,transparent)}
-  .hero-lines span::after{content:'';position:absolute;left:50%;top:-60px;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:var(--primary-light);box-shadow:0 0 14px 4px rgba(59,130,246,.7);animation:hero-spark 7s linear infinite}
-  .hero-lines span:nth-child(2)::after{background:var(--accent);box-shadow:0 0 14px 4px rgba(227,34,47,.6);animation-delay:-2s;animation-duration:9s}
-  .hero-lines span:nth-child(4)::after{animation-delay:-4.5s;animation-duration:8s}
-  .hero-lines span:nth-child(3)::after,.hero-lines span:nth-child(5)::after{display:none}
-  @keyframes hero-spark{0%{top:-60px;opacity:0}8%{opacity:1}92%{opacity:1}100%{top:100%;opacity:0}}
-  .hero-watermark{
-    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.94);
-    font-family:'Bebas Neue',sans-serif;font-size:clamp(120px,20vw,340px);line-height:1;
-    letter-spacing:.02em;color:rgba(247,248,250,.05);white-space:nowrap;user-select:none;
+  .hero-bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.4}
+  .hero-bg-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(11,13,18,.9), rgba(11,13,18,.6) 45%, rgba(11,13,18,.88));
   }
-  .hero-watermark.in{transform:translate(-50%,-50%) scale(1)}
-  @media(max-width:767px){.hero-watermark{display:none}}
+  @media(min-width:980px){
+    .hero-bg-overlay{
+      background:
+        linear-gradient(100deg, var(--bg) 12%, rgba(11,13,18,.86) 42%, rgba(11,13,18,.55) 75%, rgba(11,13,18,.75)),
+        linear-gradient(180deg, rgba(11,13,18,.35), transparent 30%, transparent 65%, var(--bg));
+    }
+  }
+  @media(prefers-reduced-motion: reduce){.hero-bg-video{display:none}}
 
   /* Floating spec cards over the hero visual */
   .spec-card{
@@ -446,8 +445,10 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg" aria-hidden="true">
-      <div class="hero-lines"><span></span><span></span><span></span><span></span><span></span></div>
-      <span class="hero-watermark reveal" style="--rd:.1s">AÇO</span>
+      <video class="hero-bg-video" autoplay muted loop playsinline poster="assets/hero-video-poster.jpg">
+        <source src="assets/hero-video.mp4" type="video/mp4" media="(min-width: 768px)">
+      </video>
+      <div class="hero-bg-overlay"></div>
     </div>
 
     <div class="container hero-grid">
