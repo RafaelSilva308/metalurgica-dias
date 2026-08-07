@@ -173,20 +173,17 @@
 
   /* Hero background FX: looping video of components + dark overlay for legibility */
   .hero-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-  .hero-bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+  .hero-bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85}
   .hero-bg-overlay{
     position:absolute;inset:0;
     background:
-      linear-gradient(100deg, var(--bg) 0%, rgba(11,13,18,.92) 34%, rgba(11,13,18,.5) 68%, rgba(11,13,18,.72) 100%),
-      linear-gradient(180deg, rgba(11,13,18,.3), transparent 22%, transparent 68%, rgba(11,13,18,.55));
+      linear-gradient(100deg, var(--bg) 0%, rgba(11,13,18,.85) 30%, rgba(11,13,18,.35) 62%, rgba(11,13,18,.5) 100%),
+      linear-gradient(180deg, rgba(11,13,18,.22), transparent 20%, transparent 65%, rgba(11,13,18,.4));
   }
   @media(max-width:600px){
-    .hero-bg-overlay{background:linear-gradient(180deg, rgba(11,13,18,.92), rgba(11,13,18,.62) 45%, rgba(11,13,18,.9))}
+    .hero-bg-overlay{background:linear-gradient(180deg, rgba(11,13,18,.85), rgba(11,13,18,.45) 45%, rgba(11,13,18,.65))}
   }
   @media(prefers-reduced-motion: reduce){.hero-bg-video{display:none}}
-
-  .hero-stat{margin-top:30px;padding-top:22px;border-top:1px solid rgba(247,248,250,.14);font-size:14.5px;color:var(--text-muted);max-width:420px}
-  .hero-stat strong{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--text);letter-spacing:.02em;margin-right:8px}
 
   .scroll-indicator{
     position:absolute;left:50%;bottom:26px;transform:translateX(-50%);
@@ -204,6 +201,44 @@
   .hero-meta{display:flex;flex-wrap:wrap;gap:22px}
   .hero-meta li{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:600;color:var(--text-muted)}
   .hero-meta svg{width:18px;height:18px;color:var(--primary-light);flex:none}
+
+  /* Feature: technical illustration + spec cards (moved out of the hero, below the video) */
+  .feature-grid{display:grid;gap:56px;align-items:center;grid-template-columns:1fr}
+  @media(min-width:980px){.feature-grid{grid-template-columns:1.05fr .95fr;gap:40px}}
+  .feature-visual{position:relative}
+  .blueprint{
+    position:relative;border-radius:var(--radius-lg);
+    background:
+      linear-gradient(rgba(59,130,246,.14) 1px, transparent 1px) 0 0/28px 28px,
+      linear-gradient(90deg, rgba(59,130,246,.14) 1px, transparent 1px) 0 0/28px 28px,
+      linear-gradient(155deg,#0E1420,#171B24 60%,#0E1420);
+    border:1px solid var(--border);
+    box-shadow:var(--shadow-lg);
+    padding:34px;
+    aspect-ratio:1/1;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .blueprint svg{width:78%;height:78%}
+  .spec-card{
+    background:rgba(11,13,18,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-md);
+    padding:16px 18px;display:flex;gap:12px;align-items:flex-start;max-width:230px;
+  }
+  .spec-card--right{flex-direction:column;gap:10px}
+  .spec-card-icon{width:38px;height:38px;border-radius:9px;flex:none;background:linear-gradient(155deg,rgba(59,130,246,.25),rgba(59,130,246,.05));border:1px solid rgba(59,130,246,.3);display:flex;align-items:center;justify-content:center}
+  .spec-card-icon svg{width:19px;height:19px;color:var(--primary-light)}
+  .spec-card-text{font-size:13px;color:var(--text-muted);line-height:1.4}
+  .spec-card-number{display:flex;align-items:baseline;gap:6px;font-family:'Bebas Neue',sans-serif}
+  .spec-card-number span{font-size:44px;line-height:1;color:var(--text)}
+  .spec-card-number small{font-size:12.5px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;font-family:'Inter',sans-serif;font-weight:600}
+  @media(min-width:980px){
+    .feature-visual{padding:26px}
+    .spec-card--left{position:absolute;left:-28px;bottom:-18px;z-index:2}
+    .spec-card--right{position:absolute;right:-24px;top:-20px;z-index:2}
+  }
+  @media(max-width:979px){.spec-card{max-width:none;margin-top:16px}}
+  .reveal-pop{transform:translateY(10px) scale(.88) rotate(-7deg)}
+  .reveal-pop-r{transform:translateY(10px) scale(.88) rotate(7deg)}
 
   /* Trust strip */
   .trust-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-alt)}
@@ -427,10 +462,67 @@
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Av. Gen. Astolfo F. Mendes, 1714 — São Judas Tadeu</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></svg> Seg. a sex., 7h30 às 18h</li>
       </ul>
-      <p class="hero-stat reveal" style="--rd:.3s"><strong>+30</strong> anos de oficina construindo máquinas pra durar na lavoura.</p>
     </div>
 
     <div class="scroll-indicator reveal" style="--rd:.8s" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- FEATURE: technical illustration + spec cards -->
+  <section class="section-pad">
+    <div class="container feature-grid">
+      <div class="section-head reveal" style="margin-bottom:0">
+        <span class="eyebrow">Como fabricamos</span>
+        <h2>Um projeto técnico por trás de cada máquina</h2>
+        <p>Da prancheta até a solda final, cada equipamento é dimensionado pra aguentar o trabalho pesado da lavoura — sem gambiarra.</p>
+      </div>
+
+      <div class="feature-visual">
+        <div class="blueprint reveal reveal-pop" style="--rd:.18s">
+          <!-- Blueprint-style illustration: coffee thresher / blower machine -->
+          <svg viewBox="0 0 240 220" fill="none" aria-hidden="true">
+            <g stroke="#3B82F6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".9">
+              <rect x="26" y="120" width="150" height="58" rx="6"/>
+              <rect x="26" y="120" width="150" height="14" rx="4" fill="#101521"/>
+              <circle cx="58" cy="196" r="14"/>
+              <circle cx="146" cy="196" r="14"/>
+              <circle cx="58" cy="196" r="4" fill="#3B82F6"/>
+              <circle cx="146" cy="196" r="4" fill="#3B82F6"/>
+              <path d="M176 140h26a10 10 0 0 1 10 10v10a10 10 0 0 1-10 10h-26z"/>
+              <path d="M212 150h14"/>
+              <path d="M64 120V78a14 14 0 0 1 14-14h44a14 14 0 0 1 14 14v42"/>
+              <circle cx="100" cy="70" r="26" stroke-dasharray="4 5"/>
+              <path d="M100 44v52M74 70h52" stroke-dasharray="4 5"/>
+              <path d="M100 44a26 26 0 0 1 26 26" stroke="#E3222F" stroke-dasharray="none"/>
+            </g>
+            <g fill="#E3222F">
+              <circle cx="100" cy="70" r="4"/>
+            </g>
+            <g stroke="#4B5566" stroke-width="1" stroke-dasharray="3 4">
+              <line x1="10" y1="120" x2="230" y2="120"/>
+              <line x1="26" y1="10" x2="26" y2="210"/>
+            </g>
+            <g fill="#6B7482" font-family="Inter, sans-serif" font-size="9" font-weight="600">
+              <text x="30" y="20">ESTRUTURA REFORÇADA</text>
+              <text x="182" y="130">MOTOR</text>
+            </g>
+          </svg>
+        </div>
+
+        <!-- PLACEHOLDER: número e legenda ilustrativos, ajustar para dado real -->
+        <div class="spec-card spec-card--right reveal reveal-pop-r" style="--rd:.3s">
+          <p class="spec-card-text">Um jeito de fabricar pensado pra resistência excepcional e precisão sob medida.</p>
+          <div class="spec-card-number"><span>+30</span><small>anos de oficina</small></div>
+        </div>
+
+        <!-- PLACEHOLDER: texto ilustrativo, ajustar para diferencial real -->
+        <div class="spec-card spec-card--left reveal reveal-pop" style="--rd:.4s">
+          <div class="spec-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </div>
+          <p class="spec-card-text">Estrutura reforçada e motor dimensionado pra aguentar o ritmo pesado da colheita.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- TRUST STRIP -->
