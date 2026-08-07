@@ -163,57 +163,30 @@
 
   /* Hero */
   .hero{
-    padding:150px 0 90px;
-    background:
-      radial-gradient(880px 480px at 82% -10%, rgba(29,78,216,.35), transparent 60%),
-      radial-gradient(600px 380px at 8% 110%, rgba(227,34,47,.16), transparent 60%),
-      var(--bg);
+    padding:160px 0 150px;
+    background:var(--bg);
     overflow:hidden;
   }
-  @media(max-width:767px){.hero{padding:112px 0 56px}}
-  @media(max-width:479px){.hero{padding:100px 0 48px}}
-  .hero-grid{
-    position:relative;z-index:1;
-    display:grid;gap:56px;align-items:center;
-    grid-template-columns:1fr;
-  }
-  @media(min-width:980px){.hero-grid{grid-template-columns:1.05fr .95fr;gap:40px}}
+  @media(max-width:767px){.hero{padding:128px 0 96px}}
+  @media(max-width:479px){.hero{padding:114px 0 76px}}
+  .hero-content{position:relative;z-index:1;max-width:640px}
 
   /* Hero background FX: looping video of components + dark overlay for legibility */
   .hero-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-  .hero-bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.4}
+  .hero-bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
   .hero-bg-overlay{
     position:absolute;inset:0;
-    background:linear-gradient(180deg, rgba(11,13,18,.9), rgba(11,13,18,.6) 45%, rgba(11,13,18,.88));
+    background:
+      linear-gradient(100deg, var(--bg) 0%, rgba(11,13,18,.92) 34%, rgba(11,13,18,.5) 68%, rgba(11,13,18,.72) 100%),
+      linear-gradient(180deg, rgba(11,13,18,.3), transparent 22%, transparent 68%, rgba(11,13,18,.55));
   }
-  @media(min-width:980px){
-    .hero-bg-overlay{
-      background:
-        linear-gradient(100deg, var(--bg) 12%, rgba(11,13,18,.86) 42%, rgba(11,13,18,.55) 75%, rgba(11,13,18,.75)),
-        linear-gradient(180deg, rgba(11,13,18,.35), transparent 30%, transparent 65%, var(--bg));
-    }
+  @media(max-width:600px){
+    .hero-bg-overlay{background:linear-gradient(180deg, rgba(11,13,18,.92), rgba(11,13,18,.62) 45%, rgba(11,13,18,.9))}
   }
   @media(prefers-reduced-motion: reduce){.hero-bg-video{display:none}}
 
-  /* Floating spec cards over the hero visual */
-  .spec-card{
-    background:rgba(11,13,18,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-    border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-md);
-    padding:16px 18px;display:flex;gap:12px;align-items:flex-start;max-width:230px;
-  }
-  .spec-card--right{flex-direction:column;gap:10px}
-  .spec-card-icon{width:38px;height:38px;border-radius:9px;flex:none;background:linear-gradient(155deg,rgba(59,130,246,.25),rgba(59,130,246,.05));border:1px solid rgba(59,130,246,.3);display:flex;align-items:center;justify-content:center}
-  .spec-card-icon svg{width:19px;height:19px;color:var(--primary-light)}
-  .spec-card-text{font-size:13px;color:var(--text-muted);line-height:1.4}
-  .spec-card-number{display:flex;align-items:baseline;gap:6px;font-family:'Bebas Neue',sans-serif}
-  .spec-card-number span{font-size:44px;line-height:1;color:var(--text)}
-  .spec-card-number small{font-size:12.5px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;font-family:'Inter',sans-serif;font-weight:600}
-  @media(min-width:980px){
-    .hero-visual{padding:26px}
-    .spec-card--left{position:absolute;left:-28px;bottom:-18px;z-index:2}
-    .spec-card--right{position:absolute;right:-24px;top:-20px;z-index:2}
-  }
-  @media(max-width:979px){.spec-card{max-width:none;margin-top:16px}}
+  .hero-stat{margin-top:30px;padding-top:22px;border-top:1px solid rgba(247,248,250,.14);font-size:14.5px;color:var(--text-muted);max-width:420px}
+  .hero-stat strong{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--text);letter-spacing:.02em;margin-right:8px}
 
   .scroll-indicator{
     position:absolute;left:50%;bottom:26px;transform:translateX(-50%);
@@ -231,21 +204,6 @@
   .hero-meta{display:flex;flex-wrap:wrap;gap:22px}
   .hero-meta li{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:600;color:var(--text-muted)}
   .hero-meta svg{width:18px;height:18px;color:var(--primary-light);flex:none}
-
-  .hero-visual{position:relative}
-  .blueprint{
-    position:relative;border-radius:var(--radius-lg);
-    background:
-      linear-gradient(rgba(59,130,246,.14) 1px, transparent 1px) 0 0/28px 28px,
-      linear-gradient(90deg, rgba(59,130,246,.14) 1px, transparent 1px) 0 0/28px 28px,
-      linear-gradient(155deg,#0E1420,#171B24 60%,#0E1420);
-    border:1px solid var(--border);
-    box-shadow:var(--shadow-lg);
-    padding:34px;
-    aspect-ratio:1/1;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .blueprint svg{width:78%;height:78%}
 
   /* Trust strip */
   .trust-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-alt)}
@@ -380,8 +338,6 @@
 
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease);transition-delay:var(--rd,0s)}
   .reveal.in{opacity:1;transform:none}
-  .reveal-pop{transform:translateY(10px) scale(.88) rotate(-7deg)}
-  .reveal-pop-r{transform:translateY(10px) scale(.88) rotate(7deg)}
 
   .skip-link{position:absolute;left:-999px;top:0;background:var(--accent);color:#fff;padding:12px 18px;border-radius:8px;z-index:200}
   .skip-link:focus{left:16px;top:16px}
@@ -453,73 +409,25 @@
       <div class="hero-bg-overlay"></div>
     </div>
 
-    <div class="container hero-grid">
-      <div>
-        <span class="eyebrow reveal">Fabricação própria &middot; Patrocínio, MG</span>
-        <h1 class="reveal" style="--rd:.06s">Máquinas robustas para quem vive o <em>café</em>.</h1>
-        <p class="hero-sub reveal" style="--rd:.12s">Sopradores, recolhedoras, batedores e juntadores de café feitos sob medida na oficina da Metalúrgica Dias — soldados para aguentar o ritmo pesado da colheita.</p>
-        <div class="hero-actions reveal" style="--rd:.18s">
-          <a class="btn btn-whatsapp" href="https://wa.me/5534997273458?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20Metal%C3%BArgica%20Dias%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.2h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
-            Peça seu orçamento
-          </a>
-          <a class="btn btn-outline" href="#produtos">
-            Ver produtos
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-          </a>
-        </div>
-        <ul class="hero-meta reveal" style="--rd:.24s">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Av. Gen. Astolfo F. Mendes, 1714 — São Judas Tadeu</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></svg> Seg. a sex., 7h30 às 18h</li>
-        </ul>
+    <div class="container hero-content">
+      <span class="eyebrow reveal">Fabricação própria &middot; Patrocínio, MG</span>
+      <h1 class="reveal" style="--rd:.06s">Máquinas robustas para quem vive o <em>café</em>.</h1>
+      <p class="hero-sub reveal" style="--rd:.12s">Sopradores, recolhedoras, batedores e juntadores de café feitos sob medida na oficina da Metalúrgica Dias — soldados para aguentar o ritmo pesado da colheita.</p>
+      <div class="hero-actions reveal" style="--rd:.18s">
+        <a class="btn btn-whatsapp" href="https://wa.me/5534997273458?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20Metal%C3%BArgica%20Dias%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.2h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+          Peça seu orçamento
+        </a>
+        <a class="btn btn-outline" href="#produtos">
+          Ver produtos
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
       </div>
-
-      <div class="hero-visual">
-        <div class="blueprint reveal reveal-pop" id="heroVisual" style="--rd:.32s">
-          <!-- Blueprint-style illustration: coffee thresher / blower machine -->
-          <svg viewBox="0 0 240 220" fill="none" aria-hidden="true">
-            <g stroke="#3B82F6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".9">
-              <rect x="26" y="120" width="150" height="58" rx="6"/>
-              <rect x="26" y="120" width="150" height="14" rx="4" fill="#101521"/>
-              <circle cx="58" cy="196" r="14"/>
-              <circle cx="146" cy="196" r="14"/>
-              <circle cx="58" cy="196" r="4" fill="#3B82F6"/>
-              <circle cx="146" cy="196" r="4" fill="#3B82F6"/>
-              <path d="M176 140h26a10 10 0 0 1 10 10v10a10 10 0 0 1-10 10h-26z"/>
-              <path d="M212 150h14"/>
-              <path d="M64 120V78a14 14 0 0 1 14-14h44a14 14 0 0 1 14 14v42"/>
-              <circle cx="100" cy="70" r="26" stroke-dasharray="4 5"/>
-              <path d="M100 44v52M74 70h52" stroke-dasharray="4 5"/>
-              <path d="M100 44a26 26 0 0 1 26 26" stroke="#E3222F" stroke-dasharray="none"/>
-            </g>
-            <g fill="#E3222F">
-              <circle cx="100" cy="70" r="4"/>
-            </g>
-            <g stroke="#4B5566" stroke-width="1" stroke-dasharray="3 4">
-              <line x1="10" y1="120" x2="230" y2="120"/>
-              <line x1="26" y1="10" x2="26" y2="210"/>
-            </g>
-            <g fill="#6B7482" font-family="Inter, sans-serif" font-size="9" font-weight="600">
-              <text x="30" y="20">ESTRUTURA REFORÇADA</text>
-              <text x="182" y="130">MOTOR</text>
-            </g>
-          </svg>
-        </div>
-
-        <!-- PLACEHOLDER: número e legenda ilustrativos, ajustar para dado real -->
-        <div class="spec-card spec-card--right reveal reveal-pop-r" style="--rd:.5s">
-          <p class="spec-card-text">Um jeito de fabricar pensado pra resistência excepcional e precisão sob medida.</p>
-          <div class="spec-card-number"><span>+30</span><small>anos de oficina</small></div>
-        </div>
-
-        <!-- PLACEHOLDER: texto ilustrativo, ajustar para diferencial real -->
-        <div class="spec-card spec-card--left reveal reveal-pop" style="--rd:.62s">
-          <div class="spec-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-          </div>
-          <p class="spec-card-text">Estrutura reforçada e motor dimensionado pra aguentar o ritmo pesado da colheita.</p>
-        </div>
-      </div>
+      <ul class="hero-meta reveal" style="--rd:.24s">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Av. Gen. Astolfo F. Mendes, 1714 — São Judas Tadeu</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></svg> Seg. a sex., 7h30 às 18h</li>
+      </ul>
+      <p class="hero-stat reveal" style="--rd:.3s"><strong>+30</strong> anos de oficina construindo máquinas pra durar na lavoura.</p>
     </div>
 
     <div class="scroll-indicator reveal" style="--rd:.8s" aria-hidden="true"><span></span></div>
