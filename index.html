@@ -300,6 +300,24 @@
   .gallery-note{margin-top:18px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px}
   .gallery-note svg{width:16px;height:16px;color:var(--primary-light);flex:none}
 
+  /* Gallery video cards: real b-roll clips (solda, corte, campo) instead of the photo placeholder */
+  .gallery-frame--video{
+    padding:0;border-style:solid;border-color:rgba(59,130,246,.4);
+    background:
+      repeating-linear-gradient(135deg, rgba(59,130,246,.07) 0 2px, transparent 2px 14px),
+      linear-gradient(155deg,#1B2436,#0E1420);
+  }
+  .gallery-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .gallery-frame--video::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,rgba(11,13,18,.7));pointer-events:none}
+  .gallery-video-tag{position:absolute;left:12px;bottom:12px;z-index:1;font-size:12px;font-weight:700;letter-spacing:.02em;color:#fff;background:rgba(11,13,18,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:6px 12px;border-radius:999px}
+  .gallery-video-badge{
+    position:absolute;left:12px;top:12px;z-index:1;display:flex;align-items:center;gap:6px;
+    font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#fff;
+    background:var(--accent);padding:5px 10px 5px 8px;border-radius:999px;
+  }
+  .gallery-video-badge svg{width:12px;height:12px}
+  @media(prefers-reduced-motion: reduce){.gallery-video{display:none}}
+
   /* CTA banner */
   .cta-banner{
     background:linear-gradient(120deg,#101521,#161B2A 55%,#1B1420);
@@ -373,6 +391,10 @@
 
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease);transition-delay:var(--rd,0s)}
   .reveal.in{opacity:1;transform:none}
+
+  /* Zoom-settle entrance (Figma-style: element starts scaled up, eases down to rest as it enters view) */
+  .reveal-zoom{transform:scale(1.15);transition-duration:.8s}
+  .reveal-zoom.in{transform:none}
 
   .skip-link{position:absolute;left:-999px;top:0;background:var(--accent);color:#fff;padding:12px 18px;border-radius:8px;z-index:200}
   .skip-link:focus{left:16px;top:16px}
@@ -669,10 +691,36 @@
         <p>Espaço reservado para fotos reais dos equipamentos e obras da Metalúrgica Dias.</p>
       </div>
 
+      <!--
+        3 slots de vídeo (solda, corte, soprador em campo) aguardando os clipes gerados/filmados —
+        troque os src abaixo pelos arquivos finais em assets/ (gallery-solda.mp4, gallery-corte.mp4, gallery-soprador-campo.mp4).
+
+        PRA REMOVER ESSA FEATURE NO FUTURO: apague os 3 <div class="gallery-frame gallery-frame--video ..."> abaixo
+        (até o fechamento de cada </div> correspondente) e, se quiser, os blocos de CSS ".gallery-frame--video",
+        ".gallery-video", ".gallery-video-tag" e ".gallery-video-badge" lá em cima no <style> — não afeta nada
+        mais do site. A classe ".reveal-zoom" pode ficar (é genérica, não depende dos vídeos).
+      -->
       <div class="gallery-grid reveal">
-        <div class="gallery-frame">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-4 4-3-3-6 6"/></svg>
-          <span>Soprador de café</span><small>foto em breve</small>
+        <div class="gallery-frame gallery-frame--video reveal reveal-zoom" style="--rd:.05s">
+          <video class="gallery-video" autoplay muted loop playsinline>
+            <source src="assets/gallery-solda.mp4" type="video/mp4">
+          </video>
+          <span class="gallery-video-badge"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Vídeo</span>
+          <span class="gallery-video-tag">Solda na oficina</span>
+        </div>
+        <div class="gallery-frame gallery-frame--video reveal reveal-zoom" style="--rd:.12s">
+          <video class="gallery-video" autoplay muted loop playsinline>
+            <source src="assets/gallery-corte.mp4" type="video/mp4">
+          </video>
+          <span class="gallery-video-badge"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Vídeo</span>
+          <span class="gallery-video-tag">Corte de precisão</span>
+        </div>
+        <div class="gallery-frame gallery-frame--video reveal reveal-zoom" style="--rd:.19s">
+          <video class="gallery-video" autoplay muted loop playsinline>
+            <source src="assets/gallery-soprador-campo.mp4" type="video/mp4">
+          </video>
+          <span class="gallery-video-badge"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Vídeo</span>
+          <span class="gallery-video-tag">Soprador em campo</span>
         </div>
         <div class="gallery-frame">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-4 4-3-3-6 6"/></svg>
