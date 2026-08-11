@@ -164,7 +164,9 @@ section{position:relative}
 
 /* Hero background FX: looping video of components + dark overlay for legibility */
 .hero-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-.hero-bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85}
+.hero-bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85;pointer-events:none}
+/* iOS/Safari shows a native "tap to play" button when autoplay is blocked (e.g. Low Power Mode) — this is decorative background video, not a player, so hide that affordance and just fall back to the poster frame. pointer-events:none is a belt-and-suspenders safeguard against any similar tap-to-play affordance on other engines (e.g. some Android browser skins), on top of the same rule already inherited from .hero-bg */
+.hero-bg-video::-webkit-media-controls-start-playback-button{display:none !important;-webkit-appearance:none}
 .hero-bg-overlay{
   position:absolute;inset:0;
   background:
