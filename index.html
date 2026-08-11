@@ -139,12 +139,14 @@
               <path d="M176 140h26a10 10 0 0 1 10 10v10a10 10 0 0 1-10 10h-26z"/>
               <path d="M212 150h14"/>
               <path d="M64 120V78a14 14 0 0 1 14-14h44a14 14 0 0 1 14 14v42"/>
-              <circle cx="100" cy="70" r="26" stroke-dasharray="4 5"/>
-              <path d="M100 44v52M74 70h52" stroke-dasharray="4 5"/>
+              <g class="blueprint-compass">
+                <circle cx="100" cy="70" r="26" stroke-dasharray="4 5"/>
+                <path d="M100 44v52M74 70h52" stroke-dasharray="4 5"/>
+              </g>
               <path d="M100 44a26 26 0 0 1 26 26" stroke="#E3222F" stroke-dasharray="none"/>
             </g>
             <g fill="#E3222F">
-              <circle cx="100" cy="70" r="4"/>
+              <circle class="blueprint-pulse" cx="100" cy="70" r="4"/>
             </g>
             <g stroke="#4B5566" stroke-width="1" stroke-dasharray="3 4">
               <line x1="10" y1="120" x2="230" y2="120"/>
@@ -159,7 +161,7 @@
 
         <div class="spec-card spec-card--right reveal reveal-pop-r" style="--rd:.3s">
           <p class="spec-card-text">Um jeito de fabricar pensado pra resistência excepcional e precisão sob medida.</p>
-          <div class="spec-card-number"><span>5</span><small>especialidades técnicas</small></div>
+          <div class="spec-card-number"><span class="count-up" data-count-to="5">0</span><small>especialidades técnicas</small></div>
         </div>
 
         <div class="spec-card spec-card--left reveal reveal-pop" style="--rd:.4s">
@@ -600,6 +602,37 @@
     document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
   } else {
     document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+
+  function animateCount(el){
+    var target = parseInt(el.getAttribute('data-count-to'), 10);
+    if(isNaN(target)) return;
+    var duration = 900, start = null;
+    function step(ts){
+      if(!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
+      if(progress < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(step);
+  }
+  var countEls = document.querySelectorAll('.count-up');
+  if(countEls.length){
+    if('IntersectionObserver' in window && !reduceMotion){
+      var countIO = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            animateCount(entry.target);
+            countIO.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.6 });
+      countEls.forEach(function(el){ countIO.observe(el); });
+    } else {
+      countEls.forEach(function(el){ el.textContent = el.getAttribute('data-count-to'); });
+    }
   }
 })();
 </script>

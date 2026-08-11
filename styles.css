@@ -210,6 +210,11 @@ section{position:relative}
   display:flex;align-items:center;justify-content:center;
 }
 .blueprint svg{width:78%;height:78%}
+/* Subtle looping motion on the technical illustration: slow-spinning dashed "compass" + breathing precision point */
+.blueprint-compass{transform-box:fill-box;transform-origin:50% 50%;animation:blueprint-spin 18s linear infinite}
+.blueprint-pulse{transform-box:fill-box;transform-origin:50% 50%;animation:blueprint-pulse 2.6s ease-in-out infinite}
+@keyframes blueprint-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes blueprint-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
 .spec-card{
   background:rgba(11,13,18,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-md);
@@ -315,6 +320,7 @@ section{position:relative}
   transition:border-color .18s var(--ease),color .18s var(--ease),background-color .18s var(--ease);
 }
 .cat-jump a:hover{color:var(--text);border-color:#3A4152;background:var(--surface)}
+.cat-jump a.active{color:#fff;background:var(--primary);border-color:var(--primary)}
 
 /* Category section */
 .cat-section-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:32px;scroll-margin-top:96px}

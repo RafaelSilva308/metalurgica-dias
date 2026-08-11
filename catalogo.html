@@ -105,7 +105,7 @@
     <div class="container">
       <div class="cat-section-head reveal">
         <h2>Preparo de solo e plantio</h2>
-        <span class="cat-count">7 equipamentos</span>
+        <span class="cat-count"><span class="count-up" data-count-to="7">0</span> equipamentos</span>
       </div>
 
       <div class="catalog-grid">
@@ -230,7 +230,7 @@
     <div class="container">
       <div class="cat-section-head reveal">
         <h2>Colheita e pós-colheita</h2>
-        <span class="cat-count">7 equipamentos</span>
+        <span class="cat-count"><span class="count-up" data-count-to="7">0</span> equipamentos</span>
       </div>
 
       <div class="catalog-grid">
@@ -349,7 +349,7 @@
     <div class="container">
       <div class="cat-section-head reveal">
         <h2>Irrigação</h2>
-        <span class="cat-count">1 equipamento</span>
+        <span class="cat-count"><span class="count-up" data-count-to="1">0</span> equipamento</span>
       </div>
 
       <div class="catalog-grid">
@@ -372,7 +372,7 @@
     <div class="container">
       <div class="cat-section-head reveal">
         <h2>Estrutura para a safra</h2>
-        <span class="cat-count">2 equipamentos</span>
+        <span class="cat-count"><span class="count-up" data-count-to="2">0</span> equipamentos</span>
       </div>
 
       <div class="catalog-grid">
@@ -528,6 +528,52 @@
     document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
   } else {
     document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+
+  function animateCount(el){
+    var target = parseInt(el.getAttribute('data-count-to'), 10);
+    if(isNaN(target)) return;
+    var duration = 900, start = null;
+    function step(ts){
+      if(!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
+      if(progress < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(step);
+  }
+  var countEls = document.querySelectorAll('.count-up');
+  if(countEls.length){
+    if('IntersectionObserver' in window && !reduceMotion){
+      var countIO = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            animateCount(entry.target);
+            countIO.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.6 });
+      countEls.forEach(function(el){ countIO.observe(el); });
+    } else {
+      countEls.forEach(function(el){ el.textContent = el.getAttribute('data-count-to'); });
+    }
+  }
+
+  var jumpLinks = document.querySelectorAll('.cat-jump a');
+  var catSections = document.querySelectorAll('#preparo-solo, #colheita, #irrigacao, #estrutura');
+  if(jumpLinks.length && catSections.length && 'IntersectionObserver' in window){
+    var spyIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          jumpLinks.forEach(function(a){
+            a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+          });
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    catSections.forEach(function(sec){ spyIO.observe(sec); });
   }
 })();
 </script>
