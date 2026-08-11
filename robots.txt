@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rafaelsilva308.github.io/metalurgica-dias/sitemap.xml
