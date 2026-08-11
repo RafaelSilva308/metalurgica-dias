@@ -120,9 +120,6 @@ section{position:relative}
 @media(min-width:1040px){.main-nav{display:block}}
 
 .header-actions{display:flex;align-items:center;gap:10px}
-.phone-chip{display:none;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--text)}
-.phone-chip svg{width:17px;height:17px;color:var(--primary-light)}
-@media(min-width:1180px){.phone-chip{display:inline-flex}}
 .header-actions .btn{padding:11px 18px;font-size:14px}
 .nav-toggle{display:flex;width:44px;height:44px;align-items:center;justify-content:center;border-radius:9px;flex:none}
 .nav-toggle svg{width:24px;height:24px}
