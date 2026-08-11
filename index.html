@@ -393,37 +393,7 @@
         <p>Espaço reservado para fotos reais dos equipamentos e obras da Metalúrgica Dias.</p>
       </div>
 
-      <!--
-        3 slots de vídeo (solda, corte, soprador em campo) aguardando os clipes gerados/filmados —
-        troque os src abaixo pelos arquivos finais em assets/ (gallery-solda.mp4, gallery-corte.mp4, gallery-soprador-campo.mp4).
-
-        PRA REMOVER ESSA FEATURE NO FUTURO: apague os 3 <div class="gallery-frame gallery-frame--video ..."> abaixo
-        (até o fechamento de cada </div> correspondente) e, se quiser, os blocos de CSS ".gallery-frame--video",
-        ".gallery-video", ".gallery-video-tag" e ".gallery-video-badge" lá em cima no <style> — não afeta nada
-        mais do site. A classe ".reveal-zoom" pode ficar (é genérica, não depende dos vídeos).
-      -->
       <div class="gallery-grid reveal">
-        <div class="gallery-frame gallery-frame--video reveal reveal-zoom" style="--rd:.05s">
-          <video class="gallery-video" autoplay muted loop playsinline>
-            <source src="assets/gallery-solda.mp4" type="video/mp4">
-          </video>
-          <span class="gallery-video-badge"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Vídeo</span>
-          <span class="gallery-video-tag">Solda na oficina</span>
-        </div>
-        <div class="gallery-frame gallery-frame--video reveal reveal-zoom" style="--rd:.12s">
-          <video class="gallery-video" autoplay muted loop playsinline>
-            <source src="assets/gallery-corte.mp4" type="video/mp4">
-          </video>
-          <span class="gallery-video-badge"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Vídeo</span>
-          <span class="gallery-video-tag">Corte de precisão</span>
-        </div>
-        <div class="gallery-frame gallery-frame--video reveal reveal-zoom" style="--rd:.19s">
-          <video class="gallery-video" autoplay muted loop playsinline>
-            <source src="assets/gallery-soprador-campo.mp4" type="video/mp4">
-          </video>
-          <span class="gallery-video-badge"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Vídeo</span>
-          <span class="gallery-video-tag">Soprador em campo</span>
-        </div>
         <div class="gallery-frame gallery-frame--photo reveal reveal-zoom" style="--rd:.05s">
           <img class="gallery-photo" src="assets/produtos/recolhedora-de-cafe.jpg" alt="Recolhedora de café da Metalúrgica Dias, montada em trator" loading="lazy" width="1400" height="803">
           <span class="gallery-photo-tag">Recolhedora de café</span>
