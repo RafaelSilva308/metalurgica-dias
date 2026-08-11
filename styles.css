@@ -268,6 +268,13 @@ section{position:relative}
 .product-link svg{width:15px;height:15px;transition:transform .18s var(--ease)}
 .product-card:hover .product-link svg{transform:translateX(3px)}
 
+/* Photo variant: real photo header for service cards where we have real footage, instead of the icon-only layout */
+.product-card--photo{padding:0;overflow:hidden}
+.product-card-media{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--bg-alt)}
+.product-card-media img{width:100%;height:100%;object-fit:cover;transition:transform .4s var(--ease)}
+.product-card--photo:hover .product-card-media img{transform:scale(1.05)}
+.product-card-body{padding:24px 28px 28px;display:flex;flex-direction:column;gap:16px}
+
 /* Differentiators */
 .diff-grid{display:grid;grid-template-columns:1fr;gap:2px;background:var(--border-light);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border-light)}
 @media(min-width:700px){.diff-grid{grid-template-columns:repeat(2,1fr)}}
