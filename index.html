@@ -85,6 +85,7 @@
       <video class="hero-bg-video" autoplay muted loop playsinline poster="assets/hero-video-poster.jpg">
         <source src="assets/hero-video.mp4" type="video/mp4">
       </video>
+      <div class="hero-bg-poster" style="background-image:url('assets/hero-video-poster.jpg')"></div>
       <div class="hero-bg-overlay"></div>
     </div>
 
@@ -586,6 +587,19 @@
   });
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var heroVideo = document.querySelector('.hero-bg-video');
+  var heroBg = document.querySelector('.hero-bg');
+  if(heroVideo && heroBg && !reduceMotion){
+    var markVideoBlocked = function(){ heroBg.classList.add('video-blocked'); };
+    var playAttempt = heroVideo.play();
+    if(playAttempt && typeof playAttempt.catch === 'function'){
+      playAttempt.catch(markVideoBlocked);
+    }
+    // Some engines (e.g. Android battery saver) silently ignore autoplay instead of rejecting the play() promise — check back shortly after.
+    setTimeout(function(){ if(heroVideo.paused) markVideoBlocked(); }, 1200);
+  }
+
   if('IntersectionObserver' in window && !reduceMotion){
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
